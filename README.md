@@ -1,17 +1,9 @@
-# LokerDesain
+# eCommerce
 
-LokerDesain adalah sebuah wadah untuk membagikan informasi mengenai lowongan pekerjaan di bidang digital kreatif. Projek ini merupakan final project untuk Bootcamp Devscale Indonesia.
+# Links
 
-# Deskripsi
-
-Deskripsi mengenai projek ini dapat dilihat pada link berikut <a href="https://docs.google.com/document/d/1l43mcO0kpFOdkhpxZPnfmMSRaU5Ak_D58anmCMXgAeM/edit?usp=sharing" target="_blank">Google Docs</a>
-
-Tech Stack:
-
-- NextJS
-- MySQL(PlanetScale) + Prisma ORM
-- Brycript + JWT
-- Tailwind + DaisyUI
+- <a href="https://github.com/users/jeeehaan/projects/3/views/1" target="_blank">Kanban</a>
+- <a href="https://docs.google.com/document/d/1l43mcO0kpFOdkhpxZPnfmMSRaU5Ak_D58anmCMXgAeM/edit?usp=sharing" target="_blank">Google Docs</a>
 
 # How to run this project
 
