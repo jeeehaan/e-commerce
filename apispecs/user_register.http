@@ -1,11 +1,13 @@
-### CREATE USER
+### CREATE USER 
 POST http://localhost:3000/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "name", "",
-    "username", "",
-    "email", "",
-    "password", "",
-
+    "name": "Afif",
+    "username": "afif",
+    "email": "me@afif.com",
+    "password": "123456"
 }
+# ### 
+# GET http://localhost:3000/api/v1/auth/register
+

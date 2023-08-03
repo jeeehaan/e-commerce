@@ -1,0 +1,14 @@
+### GET ALL CATEGORY 
+GET http://localhost:3000/api/v1/category
+
+### GET CATEGORY BY ID / SINGLE
+GET http://localhost:3000/api/v1/category/:id
+
+### CREATE CATEGORY
+POST http://localhost:3000/api/v1/category
+Content-Type: application/json
+
+{
+    "name": "Foundation",
+    "slug":"foundation"
+}
