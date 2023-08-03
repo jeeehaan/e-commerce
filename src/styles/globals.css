@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-5xl font-semibold text-white;
+  }
+  h2 {
+    @apply text-4xl font-semibold text-white;
+  }
+  h3 {
+    @apply text-3xl font-semibold text-white;
+  }
+  h4 {
+    @apply text-2xl font-semibold text-white;
+  }
+  button {
+    @apply btn btn-primary;
+  }
+}

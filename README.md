@@ -37,3 +37,10 @@
 - Do regular commit in small chunk
 - Has to be fine in build before commit `npm run build`
 - git pull (main) --> create new branch --> modify in new branch --> build --> commit
+
+# GitHub Cheat Sheet
+
+- Create new branch
+  ```shell
+   git checkout -b branch-name
+  ```
