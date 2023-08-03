@@ -2,16 +2,12 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
 
 export async function GET(request, { params }) {
-  return NextResponse.json();
-}
+  const { id } = params;
 
-export async function POST(request) {
-  const { name, slug } = await request.json();
   try {
-    const category = await prisma.category.create({
-      data: {
-        name,
-        slug,
+    const category = await prisma.category.findFirst({
+      where: {
+        id: id,
       },
     });
     return NextResponse.json({ data: category }, { status: 200 });
