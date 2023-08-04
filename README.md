@@ -47,8 +47,22 @@
   ```
 
 - Delete branch
+
+  - local
+
   ```shell
    git branch -d branch-name
+  ```
+
+  - remote
+
+  ```shell
+   git push origin -d branch-name
+  ```
+
+- Rebase
+  ```shell
+   git reset --soft HEAD~
   ```
 
 # GitHub Tips
