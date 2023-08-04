@@ -1,19 +1,18 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prisma";
-export async function GET() {
-  return NextResponse.json({ message: "Hello from the API!" });
-}
+import { hash } from "bcrypt";
+
 export async function POST(request) {
   const { name, username, email, password } = await request.json();
-  // return NextResponse.json({ data: { name, username, email, password } });
 
   try {
+    const hashedPassword = await hash(password, 10);
     const createUser = await prisma.user.create({
       data: {
         name,
         username,
         email,
-        password,
+        password: hashedPassword,
       },
     });
     return NextResponse.json({ data: createUser }, { status: 201 });

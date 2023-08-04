@@ -3,10 +3,10 @@ POST http://localhost:3000/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "name": "Afif",
-    "username": "afif",
-    "email": "me@afif.com",
-    "password": "123456"
+    "name": "Afiftes1",
+    "username": "afiftes1",
+    "email": "afiftest1@afif.com",
+    "password": "t3$"
 }
 # ### 
 # GET http://localhost:3000/api/v1/auth/register
