@@ -41,6 +41,16 @@
 # GitHub Cheat Sheet
 
 - Create new branch
+
   ```shell
    git checkout -b branch-name
   ```
+
+- Delete branch
+  ```shell
+   git branch -d branch-name
+  ```
+
+# GitHub Tips
+
+- <a href="https://gist.github.com/nyancodeid/63f19941c81252bb0cca9c14497cf9f7" target="_blank">Commit Messages Guidelines</a>
