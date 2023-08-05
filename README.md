@@ -15,7 +15,7 @@
 
 1. Clone this repository
    ```shell
-     git clone git@github.com:jeeehaan/LokerDesain.git
+     git clone git@github.com:jeeehaan/eCommerce.git
    ```
 2. Install dependencies
    ```shell
