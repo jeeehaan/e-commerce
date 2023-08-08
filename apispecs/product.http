@@ -1,0 +1,25 @@
+### GET ALL PRODUCT
+GET http://localhost:3000/api/v1/product
+
+### GET SINGLE PRODUCT BY ID
+GET http://localhost:3000/api/v1/product/cll0z33jo0003wd3wth0dsopc
+
+### GET SINGLE PRODUCT BY SLUG
+GET http://localhost:3000/api/v1/product?slug=product-name-tjefuk
+
+### CREATE PRODUCT
+POST http://localhost:3000/api/v1/product
+Content-Type: application/json
+
+{
+    "name":"Product Name TjeFuk",
+    "slug":"product-name-tjefuk",
+    "shortDescription":"short description",
+    "overview":"overview of the Product",
+    "price":19,
+    "featuredImage":"-",
+    "file":"-",
+    "image":"-",
+    "categoryId":"clkvbn8pk0001wdjwg2gchp1n",
+    "userId":"clkv9fojn0000wdjwhhq0wp2s"
+}
