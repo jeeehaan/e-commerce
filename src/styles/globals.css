@@ -15,8 +15,17 @@
   h4 {
     @apply text-2xl font-semibold;
   }
-  input {
+  input:not([type="file"]) {
     @apply block w-full input input-bordered;
+  }
+  input[type="file"] {
+    @apply file-input file-input-bordered file-input-primary;
+  }
+  textarea {
+    @apply block w-full textarea textarea-bordered text-base;
+  }
+  label {
+    @apply block w-full label label-text text-base;
   }
   button {
     @apply btn btn-primary;

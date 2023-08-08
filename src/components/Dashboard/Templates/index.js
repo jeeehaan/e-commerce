@@ -23,7 +23,7 @@ export const DashboardTemplate = ({ children }) => {
           );
         })}
       </aside>
-      <main className="w-[calc(100vw-230px] p-6 overflow-auto"> {children}</main>
+      <main className="w-[calc(100vw-230px)] p-6 overflow-auto"> {children}</main>
     </div>
   );
 };
