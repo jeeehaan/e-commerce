@@ -11,6 +11,8 @@ export const CreateProduct = ({ categoryData = [] }) => {
     categoryId: "",
   });
 
+  console.log(categoryData);
+
   const handleEventChange = (event) => {
     const { name, value } = event.target;
     setProductData({ ...productData, [name]: value });
