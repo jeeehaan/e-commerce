@@ -10,9 +10,7 @@ export async function GET(request) {
     if (slug) {
       const product = await prisma.product.findFirst({
         where: {
-          slug: {
-            is: slug,
-          },
+          slug,
         },
       });
       return NextResponse.json({ data: product }, { status: 200 });

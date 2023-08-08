@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
     "name":"Product Name TjeFuk",
-    "slug":" product-name-tjefuk",
+    "slug":"product-name-tjefuk",
     "shortDescription":"short description",
     "overview":"overview of the Product",
     "price":19,
