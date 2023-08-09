@@ -9,6 +9,6 @@ POST http://localhost:3000/api/v1/category
 Content-Type: application/json
 
 {
-    "name": "Foundation",
-    "slug":"foundation"
+    "name": "Toner",
+    "slug":"Toner"
 }

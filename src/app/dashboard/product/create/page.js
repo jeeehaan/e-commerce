@@ -1,5 +1,15 @@
 import { CreateProduct } from "@/components/Dashboard/Components/CreateProduct";
+import { API_URL } from "@/config/apiUrl";
 
-export default function Page() {
-  return <CreateProduct />;
+async function getCategories() {
+  const res = await fetch(`${API_URL}/category`);
+  const data = await res.json();
+  return data;
+}
+
+export default async function Page() {
+  const { data } = await getCategories();
+  // console.log(data);
+
+  return <CreateProduct categoryData={data} />;
 }
