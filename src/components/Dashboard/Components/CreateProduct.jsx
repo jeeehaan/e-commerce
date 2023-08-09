@@ -57,6 +57,14 @@ export const CreateProduct = ({ categoryData = [] }) => {
     console.log(productPreviewName);
   };
 
+  const handleDownloadableFileChange = (event) => {
+    const files = event.target.files;
+    const file = files[0];
+    const fileName = file.name;
+
+    setProductData({ ...productData, downloadableFile: fileName });
+  };
+
   const handleSubmitCreateProduct = () => {
     console.log(productData);
   };
@@ -109,7 +117,7 @@ export const CreateProduct = ({ categoryData = [] }) => {
         </div>
         <div>
           <label>Downloadable file</label>
-          <input type="file" />
+          <input type="file" onChange={handleDownloadableFileChange} />
         </div>
 
         <button onClick={handleSubmitCreateProduct}>Create</button>
