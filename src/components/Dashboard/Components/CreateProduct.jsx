@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const CreateProduct = ({ categoryData = [] }) => {
   const [productData, setProductData] = useState({
@@ -9,13 +10,29 @@ export const CreateProduct = ({ categoryData = [] }) => {
     overview: "",
     price: "",
     categoryId: "",
+    featuredImage: "",
+    productPreviews: [],
+    downloadableFile: "",
   });
 
-  console.log(categoryData);
+  const [featuredImage, setFeaturedImage] = useState("");
 
   const handleEventChange = (event) => {
     const { name, value } = event.target;
     setProductData({ ...productData, [name]: value });
+  };
+
+  const handleFeaturedImageChange = (event) => {
+    const files = event.target.files;
+    const file = files[0];
+    const fileName = file.name;
+    setProductData({ ...productData, featuredImage: fileName });
+
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setFeaturedImage(fileReader.result);
+    };
+    fileReader.readAsDataURL(file);
   };
 
   const handleSubmitCreateProduct = () => {
@@ -48,7 +65,12 @@ export const CreateProduct = ({ categoryData = [] }) => {
         </select>
         <div>
           <label>Featured Image</label>
-          <input type="file" />
+          {featuredImage && (
+            <div className="relative w-full h-[300px] mb-4">
+              <Image src={featuredImage} alt="Featured Image" fill className="object-cover  rounded-xl" />
+            </div>
+          )}
+          <input type="file" onChange={handleFeaturedImageChange} />
         </div>
         <div>
           <label>Product preview</label>
