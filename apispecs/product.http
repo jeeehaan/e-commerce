@@ -12,10 +12,10 @@ POST http://localhost:3000/api/v1/product
 Content-Type: application/json
 
 {
-    "name":"Product Name TjeFuk",
-    "slug":"product-name-tjefuk",
-    "shortDescription":"short description",
-    "overview":"overview of the Product",
+    "name":"Test",
+    "slug":"Test",
+    "shortDescription":"Test",
+    "overview":"Test",
     "price":19,
     "featuredImage":"-",
     "file":"-",

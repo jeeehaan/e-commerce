@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { fileUpload } from "@/lib/storage/fileUpload";
+import slugify from "slugify";
+import { API_URL } from "@/config/apiUrl";
 
 export const CreateProduct = ({ categoryData = [] }) => {
   const [productData, setProductData] = useState({
@@ -17,8 +20,11 @@ export const CreateProduct = ({ categoryData = [] }) => {
 
   const [featuredImage, setFeaturedImage] = useState("");
   const [productPreviews, setProductPreviews] = useState([]);
+  const [featuredImageFile, setFeaturedImageFile] = useState(null);
+  const [productPreviewFiles, setProductPreviewFiles] = useState([]);
+  const [downloadableFile, setDownloadableFile] = useState(null);
 
-  console.log({ productPreviews });
+  // console.log({ productPreviews });
 
   const handleEventChange = (event) => {
     const { name, value } = event.target;
@@ -30,6 +36,7 @@ export const CreateProduct = ({ categoryData = [] }) => {
     const file = files[0];
     const fileName = file.name;
     setProductData({ ...productData, featuredImage: fileName });
+    setFeaturedImageFile(file);
 
     const fileReader = new FileReader();
     fileReader.onload = () => {
@@ -40,9 +47,10 @@ export const CreateProduct = ({ categoryData = [] }) => {
 
   const handleProductPreviewChange = (event) => {
     const files = event.target.files;
-    console.log(files);
+    // console.log(files);
     const productPreviewName = [];
     const productPreviewsBase64 = [];
+    setProductPreviewFiles(files);
 
     for (let i = 0; i < files.length; i++) {
       productPreviewName.push({ name: files[i].name });
@@ -54,19 +62,50 @@ export const CreateProduct = ({ categoryData = [] }) => {
       fileReader.readAsDataURL(files[i]);
     }
     setProductData({ ...productData, productPreviews: productPreviewName });
-    console.log(productPreviewName);
+    // console.log(productPreviewName);
   };
 
   const handleDownloadableFileChange = (event) => {
     const files = event.target.files;
     const file = files[0];
     const fileName = file.name;
+    setDownloadableFile(file);
 
     setProductData({ ...productData, downloadableFile: fileName });
   };
 
-  const handleSubmitCreateProduct = () => {
-    console.log(productData);
+  const handleSubmitCreateProduct = async () => {
+    const { name, shortDescription, overview, price, categoryId, featuredImage, productPreviews, downloadableFile } = productData;
+
+    const res = await fetch(`${API_URL}/product`, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        slug: slugify(name, { replacement: "-", lower: true }),
+        shortDescription,
+        overview,
+        price,
+        featuredImage,
+        file: downloadableFile,
+        images: productPreviews,
+        categoryId,
+        // Ganti menjadi userId dari localStorage
+        userId: "clkv9fojn0000wdjwhhq0wp2s",
+      }),
+    });
+
+    const { data, error } = await res.json();
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(data);
+    // try {
+    //   await fileUpload(featuredImageFile, "test");
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   useEffect(() => {
