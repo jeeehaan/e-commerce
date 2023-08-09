@@ -16,6 +16,9 @@ export const CreateProduct = ({ categoryData = [] }) => {
   });
 
   const [featuredImage, setFeaturedImage] = useState("");
+  const [productPreviews, setProductPreviews] = useState([]);
+
+  console.log({ productPreviews });
 
   const handleEventChange = (event) => {
     const { name, value } = event.target;
@@ -33,6 +36,25 @@ export const CreateProduct = ({ categoryData = [] }) => {
       setFeaturedImage(fileReader.result);
     };
     fileReader.readAsDataURL(file);
+  };
+
+  const handleProductPreviewChange = (event) => {
+    const files = event.target.files;
+    console.log(files);
+    const productPreviewName = [];
+    const productPreviewsBase64 = [];
+
+    for (let i = 0; i < files.length; i++) {
+      productPreviewName.push({ name: files[i].name });
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        productPreviewsBase64.push({ img: fileReader.result });
+        setProductPreviews(productPreviewsBase64);
+      };
+      fileReader.readAsDataURL(files[i]);
+    }
+    setProductData({ ...productData, productPreviews: productPreviewName });
+    console.log(productPreviewName);
   };
 
   const handleSubmitCreateProduct = () => {
@@ -74,7 +96,16 @@ export const CreateProduct = ({ categoryData = [] }) => {
         </div>
         <div>
           <label>Product preview</label>
-          <input type="file" />
+          <div className="grid grid-cols-4 gap-4 mb-4">
+            {productPreviews.map(({ img }) => {
+              return (
+                <div className="relative w-full h-[100px]">
+                  <Image src={img} alt="Image" fill className="object-cover rounded-xl" />
+                </div>
+              );
+            })}
+          </div>
+          <input type="file" multiple onChange={handleProductPreviewChange} />
         </div>
         <div>
           <label>Downloadable file</label>
