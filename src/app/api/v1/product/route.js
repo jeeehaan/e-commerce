@@ -25,18 +25,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const {
-    name,
-    slug,
-    shortDescription,
-    overview,
-    price,
-    featuredImage,
-    file,
-    images,
-    categoryId,
-    userId,
-  } = await request.json();
+  const { name, slug, shortDescription, overview, price, featuredImage, file, images, categoryId, userId } = await request.json();
 
   try {
     const createProduct = await prisma.product.create({
@@ -45,10 +34,10 @@ export async function POST(request) {
         slug,
         shortDescription,
         overview,
-        price,
+        price: Number(price),
         featuredImage,
         file,
-        images,
+        images: JSON.stringify(images),
         categoryId,
         userId,
       },
