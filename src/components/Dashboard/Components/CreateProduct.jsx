@@ -75,7 +75,7 @@ export const CreateProduct = ({ categoryData = [] }) => {
   };
 
   const handleSubmitCreateProduct = async () => {
-    const { name, shortDescription, overview, price, categoryId, featuredImage, productPreviews, downloadableFile } = productData;
+    const { name, shortDescription, overview, price, categoryId, featuredImage, productPreviews, downloadableFile: file } = productData;
 
     const res = await fetch(`${API_URL}/product`, {
       method: "POST",
@@ -86,7 +86,7 @@ export const CreateProduct = ({ categoryData = [] }) => {
         overview,
         price,
         featuredImage,
-        file: downloadableFile,
+        file,
         images: productPreviews,
         categoryId,
         // Ganti menjadi userId dari localStorage
@@ -101,11 +101,18 @@ export const CreateProduct = ({ categoryData = [] }) => {
       return;
     }
     console.log(data);
-    // try {
-    //   await fileUpload(featuredImageFile, "test");
-    // } catch (error) {
-    //   console.log(error);
-    // }
+
+    const { id } = data;
+    try {
+      await fileUpload(featuredImageFile, id);
+      await fileUpload(downloadableFile, id);
+
+      for (let i = 0; i < productPreviewFiles.length; i++) {
+        await fileUpload(productPreviewFiles[i], id);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
