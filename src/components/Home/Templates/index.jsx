@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export const Template = ({ children }) => {
   const path = usePathname();
-  console.log(path);
+  // console.log(path);
   if (path === "/login" || path === "/join") {
     return <main className="h-screen flex justify-center items-center">{children}</main>;
   }
