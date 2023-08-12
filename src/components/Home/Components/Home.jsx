@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { trimString } from "@/lib/modifier/trimString";
 export const Home = ({ productData = [] }) => {
   return (
     <main className="space-y-20">
@@ -16,7 +17,7 @@ export const Home = ({ productData = [] }) => {
                 <Image src={`${imageURL}/${product.id}/${product.featuredImage}`} width={400} height={400} className="rounded-2xl" />
               </div>
               <div className="flex justify-between p-4 text-sm">
-                <div className="text-black font-medium">{product.name}</div>
+                <div className="text-black font-medium">{trimString(product.name, 30)}</div>
                 <div>USD{product.price}</div>
               </div>
             </div>
