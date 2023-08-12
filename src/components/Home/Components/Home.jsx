@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import { trimString } from "@/lib/modifier/trimString";
+import { ProductCard } from "./ProductCard";
 export const Home = ({ productData = [] }) => {
   return (
     <main className="space-y-20">
@@ -10,18 +9,7 @@ export const Home = ({ productData = [] }) => {
       </section>
       <section className="grid grid-cols-3 gap-4">
         {productData.map((product) => {
-          const imageURL = process.env.NEXT_PUBLIC_IMAGE_URL;
-          return (
-            <div className="bg-purple-200 rounded-xl cursor-pointer">
-              <div className="hover:scale-105 transition duration-300 ease-in-out">
-                <Image src={`${imageURL}/${product.id}/${product.featuredImage}`} width={400} height={400} className="rounded-2xl" />
-              </div>
-              <div className="flex justify-between p-4 text-sm">
-                <div className="text-black font-medium">{trimString(product.name, 30)}</div>
-                <div>USD{product.price}</div>
-              </div>
-            </div>
-          );
+          return <ProductCard key={product.id} product={product} />;
         })}
       </section>
     </main>
