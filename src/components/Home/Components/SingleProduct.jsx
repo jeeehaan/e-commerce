@@ -17,7 +17,7 @@ export const SingleProduct = ({ productData }) => {
           </div>
           <section className="space-x-8">
             <div className="badge badge-primary">{productData.category?.name}</div>
-            <div className="badge badge-ghost badge-outline">{productData.user.username}</div>
+            <div className="badge badge-ghost badge-outline">{productData.user?.username}</div>
           </section>
         </section>
         <section>
