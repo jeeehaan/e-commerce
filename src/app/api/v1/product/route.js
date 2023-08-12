@@ -12,11 +12,20 @@ export async function GET(request) {
         where: {
           slug,
         },
+        include: {
+          category: true,
+          user: true,
+        },
       });
       return NextResponse.json({ data: product }, { status: 200 });
     }
 
-    const allproduct = await prisma.product.findMany();
+    const allproduct = await prisma.product.findMany({
+      include: {
+        category: true,
+        user: true,
+      },
+    });
     return NextResponse.json({ data: allproduct }, { status: 200 });
   } catch (error) {
     console.log(error);

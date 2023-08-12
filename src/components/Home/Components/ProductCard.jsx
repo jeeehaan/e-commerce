@@ -3,7 +3,7 @@ import Image from "next/image";
 import { trimString } from "@/lib/modifier/trimString";
 import Link from "next/link";
 
-const imageURL = process.env.NEXT_PUBLIC_IMAGE_URL;
+export const imageURL = process.env.NEXT_PUBLIC_IMAGE_URL;
 
 export const ProductCard = ({ product }) => {
   return (
