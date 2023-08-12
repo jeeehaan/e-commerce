@@ -102,7 +102,7 @@ export const CreateProduct = ({ categoryData = [] }) => {
     }
     console.log(data);
 
-    // const { id } = data;
+    const { id } = data;
     try {
       await fileUpload(featuredImageFile, id);
       await fileUpload(downloadableFile, id);

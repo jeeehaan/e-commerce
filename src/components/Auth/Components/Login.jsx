@@ -3,8 +3,10 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import { API_URL } from "@/config/apiUrl";
+import { useRouter } from "next/navigation";
 
 export const Login = () => {
+  const router = useRouter();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -21,6 +23,7 @@ export const Login = () => {
     const res = await fetch(`${API_URL}/auth/login`, { method: "POST", body: JSON.stringify({ email, password }) });
     const data = await res.json();
     console.log(data);
+    router.push("/dashboard");
   };
 
   return (
