@@ -4,12 +4,10 @@
 
 - Jessy Hanifiah (Lead)
 - Afifah (Member)
-- Salmaa Yufa (Member)
 
 # Links
 
 - <a href="https://github.com/users/jeeehaan/projects/3/views/1" target="_blank">Kanban</a>
-- <a href="https://docs.google.com/document/d/1l43mcO0kpFOdkhpxZPnfmMSRaU5Ak_D58anmCMXgAeM/edit?usp=sharing" target="_blank">Google Docs</a>
 
 # Installation Guide
 
